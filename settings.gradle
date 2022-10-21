@@ -1,0 +1,4 @@
+rootProject.name = 'gradle-plugin-template-root'
+
+includeBuild 'gradle-plugin-template'
+includeBuild 'test-project'
