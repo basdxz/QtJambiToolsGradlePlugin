@@ -1,4 +1,4 @@
-package com.basdxz.gradleplugintemplate;
+package com.basdxz.qtjambitoolsgradleplugin;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;

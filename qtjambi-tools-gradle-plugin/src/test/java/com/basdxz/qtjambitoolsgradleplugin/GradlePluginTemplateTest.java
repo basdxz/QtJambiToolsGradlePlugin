@@ -1,4 +1,4 @@
-package com.basdxz.gradleplugintemplate;
+package com.basdxz.qtjambitoolsgradleplugin;
 
 import lombok.*;
 import org.gradle.testfixtures.ProjectBuilder;

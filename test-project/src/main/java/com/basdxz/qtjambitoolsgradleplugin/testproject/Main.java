@@ -1,4 +1,4 @@
-package com.basdxz.gradleplugintemplate.testproject;
+package com.basdxz.qtjambitoolsgradleplugin.testproject;
 
 public class Main {
     public static void main(String... args) {
