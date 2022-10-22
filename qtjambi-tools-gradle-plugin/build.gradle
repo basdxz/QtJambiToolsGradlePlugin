@@ -27,8 +27,8 @@ gradlePlugin {
     // Define the plugin
     plugins {
         greeting {
-            id = 'com.basdxz.gradleplugintemplate'
-            implementationClass = 'com.basdxz.gradleplugintemplate.GradlePluginTemplate'
+            id = 'com.basdxz.qtjambitoolsgradleplugin'
+            implementationClass = 'com.basdxz.qtjambitoolsgradleplugin.GradlePluginTemplate'
         }
     }
 }
