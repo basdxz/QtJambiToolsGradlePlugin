@@ -1,6 +1,7 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'com.basdxz.qtjambitoolsgradleplugin'
+    id 'idea'
 }
 
 repositories {
@@ -13,11 +14,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
-greeting {
-    greeter = "The local Baller??"
-    message = "Message from the global baller!!"
+task hello2(type: com.basdxz.qtjambitoolsgradleplugin.TestTask) {
+//    theWord "bababoey"
 }
-
-//task afterHello {
-//    dependsOn hello
-//}
