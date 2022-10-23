@@ -49,8 +49,4 @@ public enum QTJambiOSQualifier {
                      .filter(qualifier -> qualifier.arch.equals(arch))
                      .findFirst().orElse(UNKNOWN);
     }
-
-    public static void main(String[] args) {
-        System.out.println(currentQualifier());
-    }
 }

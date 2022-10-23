@@ -1,3 +1,5 @@
+import com.basdxz.qtjambitoolsgradleplugin.TestTask;
+
 plugins {
     id 'java-library'
     id 'com.basdxz.qtjambitoolsgradleplugin'
@@ -14,6 +16,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
-task hello2(type: com.basdxz.qtjambitoolsgradleplugin.TestTask) {
-//    theWord "bababoey"
+task hello2(type: TestTask) {
+    input new File("F:\\Projects\\Minecraft Modding\\QtJambiToolsGradlePlugin\\look_at_me_I_am_a_stupid_text_file.txt")
+    output new File("F:\\Projects\\Minecraft Modding\\QtJambiToolsGradlePlugin\\look_at_me_I_am_a_smart_text_file.txt")
 }
+
+//hello {
+//    theWord = "bababoey"
+//}
