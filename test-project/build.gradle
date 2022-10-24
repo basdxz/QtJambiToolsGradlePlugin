@@ -1,8 +1,8 @@
-import com.basdxz.qtjambitoolsgradleplugin.TestTask;
+import com.basdxz.qtjambitools.task.QTJavaCompilationTask;
 
 plugins {
     id 'java-library'
-    id 'com.basdxz.qtjambitoolsgradleplugin'
+    id 'com.basdxz.qtjambitools'
     id 'idea'
 }
 
@@ -16,11 +16,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
-task hello2(type: TestTask) {
-    input new File("F:\\Projects\\Minecraft Modding\\QtJambiToolsGradlePlugin\\look_at_me_I_am_a_stupid_text_file.txt")
-    output new File("F:\\Projects\\Minecraft Modding\\QtJambiToolsGradlePlugin\\look_at_me_I_am_a_smart_text_file.txt")
+task testTask2(type: QTJavaCompilationTask) {
+//    inputDirectory new File("${project.projectDir}/qt_widgets")
+//    outputDirectory new File("${project.projectDir}/build/generated/sources/gamingplus")
 }
-
-//hello {
-//    theWord = "bababoey"
-//}

@@ -21,6 +21,9 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'commons-io:commons-io:2.11.0'
 
+    // ZT Process Executor
+    implementation 'org.zeroturnaround:zt-exec:1.12'
+
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
@@ -37,8 +40,8 @@ gradlePlugin {
     // Define the plugin
     plugins {
         greeting {
-            id = 'com.basdxz.qtjambitoolsgradleplugin'
-            implementationClass = 'com.basdxz.qtjambitoolsgradleplugin.GradlePluginTemplate'
+            id = 'com.basdxz.qtjambitools'
+            implementationClass = 'com.basdxz.qtjambitools.plugin.QTJambiToolsPlugin'
         }
     }
 }

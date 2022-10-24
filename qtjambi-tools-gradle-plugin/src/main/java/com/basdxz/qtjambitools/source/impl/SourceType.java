@@ -1,6 +1,6 @@
-package com.basdxz.qtjambitoolsgradleplugin.source.impl;
+package com.basdxz.qtjambitools.source.impl;
 
-import com.basdxz.qtjambitoolsgradleplugin.source.ISourceType;
+import com.basdxz.qtjambitools.source.ISourceType;
 import lombok.*;
 
 @Getter

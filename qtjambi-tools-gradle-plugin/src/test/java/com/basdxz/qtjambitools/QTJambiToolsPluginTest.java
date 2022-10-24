@@ -1,8 +1,8 @@
-package com.basdxz.qtjambitoolsgradleplugin;
+package com.basdxz.qtjambitools;
 
 import org.junit.jupiter.api.Test;
 
-public class GradlePluginTemplateTest {
+public class QTJambiToolsPluginTest {
     @Test
     public void greetingTest() {
 //        val project = ProjectBuilder.builder().build();

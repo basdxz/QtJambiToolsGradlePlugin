@@ -1,4 +1,4 @@
-package com.basdxz.qtjambitoolsgradleplugin.util;
+package com.basdxz.qtjambitools.util;
 
 import lombok.*;
 import lombok.experimental.*;

@@ -1,4 +1,4 @@
-package com.basdxz.qtjambitoolsgradleplugin.source;
+package com.basdxz.qtjambitools.source;
 
 import lombok.*;
 import org.gradle.api.Project;
@@ -10,9 +10,9 @@ import org.gradle.plugins.ide.idea.model.IdeaModel;
 import java.io.File;
 import java.io.IOException;
 
-import static com.basdxz.qtjambitoolsgradleplugin.util.Constants.IDEA_PLUGIN_ID;
-import static com.basdxz.qtjambitoolsgradleplugin.util.Constants.SOURCE_SET_PROPERTY;
-import static com.basdxz.qtjambitoolsgradleplugin.util.FileUtil.createDirectory;
+import static com.basdxz.qtjambitools.util.Constants.IDEA_PLUGIN_ID;
+import static com.basdxz.qtjambitools.util.Constants.SOURCE_SET_PROPERTY;
+import static com.basdxz.qtjambitools.util.FileUtil.createDirectory;
 
 public interface SourceSetWrapper {
     Project project();

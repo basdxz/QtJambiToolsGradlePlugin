@@ -1,4 +1,4 @@
-package com.basdxz.qtjambitoolsgradleplugin.dependencies;
+package com.basdxz.qtjambitools.dependencies;
 
 import groovy.lang.Closure;
 import lombok.*;

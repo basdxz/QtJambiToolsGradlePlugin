@@ -1,6 +1,6 @@
-package com.basdxz.qtjambitoolsgradleplugin.dependencies.impl;
+package com.basdxz.qtjambitools.dependencies.impl;
 
-import com.basdxz.qtjambitoolsgradleplugin.dependencies.IDependencyConfiguration;
+import com.basdxz.qtjambitools.dependencies.IDependencyConfiguration;
 import groovy.lang.Closure;
 import lombok.*;
 import org.gradle.api.Project;

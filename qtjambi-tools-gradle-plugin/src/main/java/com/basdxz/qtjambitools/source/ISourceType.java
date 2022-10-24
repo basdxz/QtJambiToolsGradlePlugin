@@ -1,4 +1,4 @@
-package com.basdxz.qtjambitoolsgradleplugin.source;
+package com.basdxz.qtjambitools.source;
 
 public interface ISourceType {
     String sourceSet();
