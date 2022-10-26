@@ -2,9 +2,9 @@ package com.basdxz.qtjambitools.util;
 
 import lombok.*;
 import lombok.experimental.*;
+import org.apache.commons.io.input.BufferedFileChannelInputStream;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 @UtilityClass
 public final class FileUtil {
@@ -16,5 +16,22 @@ public final class FileUtil {
         }
         if (!directory.mkdirs())
             throw new IOException("Failed to create directory: " + directory.getAbsolutePath());
+    }
+
+    public static void deleteFile(@NonNull File file) {
+        if (!file.delete())
+            throw new RuntimeException("Failed to delete file: " + file);
+    }
+
+    public static InputStream fileInputStream(@NonNull File inputFile) throws IOException {
+        return new BufferedFileChannelInputStream(inputFile);
+    }
+
+    public static PrintWriter filePrintWriter(@NonNull File outputFile) throws FileNotFoundException {
+        return new PrintWriter(fileOutputStream(outputFile));
+    }
+
+    public static OutputStream fileOutputStream(@NonNull File outputFile) throws FileNotFoundException {
+        return new FileOutputStream(outputFile);
     }
 }
