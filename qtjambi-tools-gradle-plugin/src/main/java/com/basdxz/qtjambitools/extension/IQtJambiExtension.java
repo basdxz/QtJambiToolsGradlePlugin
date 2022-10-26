@@ -1,13 +1,15 @@
 package com.basdxz.qtjambitools.extension;
 
 public interface IQtJambiExtension {
-    String version();
+    String EXTENSION_NAME = "qtjambi";
 
-    String osQualifier();
+    String getVersion();
 
-    String defaultInputDirectory();
+    String getOsQualifier();
 
-    String defaultPackagePath();
+    String getDefaultInputDirectory();
 
-    String defaultOutputDirectory();
+    String getDefaultPackagePath();
+
+    String getDefaultOutputDirectory();
 }

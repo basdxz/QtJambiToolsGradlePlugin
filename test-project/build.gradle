@@ -1,4 +1,4 @@
-import com.basdxz.qtjambitools.task.QTJavaCompilationTask;
+import com.basdxz.qtjambitools.task.impl.QTJavaCompilationTask;
 
 plugins {
     id 'java-library'
@@ -15,6 +15,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
+
+//qtjambi {
+//    version = "foopp"
+//    osQualifier = "silly-2-3-4"
+//}
 
 task testTask2(type: QTJavaCompilationTask) {
 //    inputDirectory new File("${project.projectDir}/qt_widgets")

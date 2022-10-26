@@ -1,4 +1,4 @@
-package com.basdxz.qtjambitools.task;
+package com.basdxz.qtjambitools.task.impl;
 
 import com.basdxz.qtjambitools.extension.impl.QtJambiExtension;
 import com.basdxz.qtjambitools.util.FileUtil;
@@ -33,9 +33,9 @@ public class QTJavaCompilationTask extends DefaultTask {
 
     public QTJavaCompilationTask() {
         val qtJambiExtension = QtJambiExtension.qtJambiExtension(getProject());
-        inputDirectory = new File(qtJambiExtension.defaultInputDirectory());
-        packagePath = qtJambiExtension.defaultPackagePath();
-        outputDirectory = new File(qtJambiExtension.defaultOutputDirectory());
+        inputDirectory = new File(qtJambiExtension.getDefaultInputDirectory());
+        packagePath = qtJambiExtension.getDefaultPackagePath();
+        outputDirectory = new File(qtJambiExtension.getDefaultOutputDirectory());
     }
 
     public void init() {
@@ -50,8 +50,7 @@ public class QTJavaCompilationTask extends DefaultTask {
     @TaskAction
     public void compile() {
         prepareOutputDirectory();
-        listFiles(inputDirectory, new String[]{QT_UI_FILE_EXTENSION}, true)
-                .forEach(this::generateJavaFile);
+        generateJavaFiles();
     }
 
     protected void prepareOutputDirectory() {
@@ -65,6 +64,11 @@ public class QTJavaCompilationTask extends DefaultTask {
                     if (!file.delete())
                         throw new RuntimeException("Failed to delete file: " + file);
                 });
+    }
+
+    protected void generateJavaFiles() {
+        listFiles(inputDirectory, new String[]{QT_UI_FILE_EXTENSION}, true)
+                .forEach(this::generateJavaFile);
     }
 
     protected void generateJavaFile(@NonNull File qtUiFile) {
