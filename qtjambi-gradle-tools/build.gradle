@@ -1,11 +1,12 @@
 plugins {
     id 'java-gradle-plugin'
     id 'idea'
-    id 'com.palantir.git-version' version "0.15.0"
+    id 'com.palantir.git-version' version '0.15.0'
+    id 'maven-publish'
 }
 
 group 'com.basdxz'
-archivesBaseName = 'qtjambit-gradle-tools'
+archivesBaseName = 'qtjambi-gradle-tools'
 version gitVersion()
 
 repositories {
@@ -61,3 +62,5 @@ artifacts {
     archives jar
     archives sourcesJar
 }
+
+apply from: 'publish.gradle'

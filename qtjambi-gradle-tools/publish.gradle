@@ -1,9 +1,5 @@
-plugins {
-    id 'maven-publish'
-}
-
-def repositoryName = "shadowpattern"
-def repositoryURL = "https://mvn.falsepattern.com/shadow/"
+def repositoryName = "repsy"
+def repositoryURL = "https://repo.repsy.io/mvn/ventooth/public"
 
 def getMavenSettingsCredentials = {
     String userHome = System.getProperty("user.home");
