@@ -34,6 +34,8 @@ public class QTJavaCompilationTask extends DefaultTask {
     protected File outputDirectory;
     @Input
     protected String packagePath;
+    @Input
+    protected boolean packageHierarchyInOutput = false;
 
     public QTJavaCompilationTask() {
         val qtJavelinExtension = QtJavelinExtension.qtJavelinExtension(getProject());
@@ -72,7 +74,7 @@ public class QTJavaCompilationTask extends DefaultTask {
     }
 
     protected FileProcessor newQTJavaCompiler() {
-        return new QTJavaCompiler(inputDirectory, outputDirectory, packagePath);
+        return new QTJavaCompiler(inputDirectory, outputDirectory, packagePath, packageHierarchyInOutput);
     }
 
     protected FileProcessor newQTSourceTransformer() {

@@ -5,7 +5,6 @@ import lombok.*;
 
 import java.io.File;
 
-@AllArgsConstructor
 public class QTJavaCompiler implements FileProcessor {
     protected static final String OUTPUT_ARGUMENT = "--output";
     protected static final String PACKAGE_ARGUMENT = "--package";
@@ -16,9 +15,13 @@ public class QTJavaCompiler implements FileProcessor {
     protected final String outputDirectory;
     @NonNull
     protected final String packagePath;
+    protected final boolean packageHierarchyInOutput;
 
-    public QTJavaCompiler(@NonNull File inputDirectory, @NonNull File outputDirectory, @NonNull String packagePath) {
-        this(inputDirectory.getAbsolutePath(), outputDirectory.getAbsolutePath(), packagePath);
+    public QTJavaCompiler(@NonNull File inputDirectory, @NonNull File outputDirectory, @NonNull String packagePath, boolean packageHierarchyInOutput) {
+        this.inputDirectory = inputDirectory.getAbsolutePath();
+        this.outputDirectory = outputDirectory.getAbsolutePath();
+        this.packagePath = packagePath;
+        this.packageHierarchyInOutput = packageHierarchyInOutput;
     }
 
     @Override
