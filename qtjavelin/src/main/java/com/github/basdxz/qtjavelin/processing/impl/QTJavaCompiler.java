@@ -38,6 +38,8 @@ public class QTJavaCompiler implements FileProcessor {
     }
 
     protected String packagePath(@NonNull File qtUiFile) {
+        if (!packageHierarchyInOutput)
+            return packagePath;
         val inputFilePath = qtUiFile.getAbsolutePath();
         val relativeInputFilePath = inputFilePath.replace(inputDirectory, "");
         val lastSeparatorIndex = relativeInputFilePath.lastIndexOf(File.separatorChar);
