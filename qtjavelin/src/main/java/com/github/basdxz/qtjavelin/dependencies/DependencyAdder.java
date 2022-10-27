@@ -1,14 +1,13 @@
 package com.github.basdxz.qtjavelin.dependencies;
 
 import lombok.*;
+import org.gradle.api.Action;
 import org.gradle.api.Project;
-import org.gradle.api.internal.GradleInternal;
-import org.gradle.initialization.ModelConfigurationListener;
 
-public interface DependencyAdder extends ModelConfigurationListener {
+public interface DependencyAdder extends Action<Project> {
     @Override
-    default void onConfigure(@NonNull GradleInternal model) {
-        addDependencies(model.getRootProject());
+    default void execute(@NonNull Project project) {
+        addDependencies(project);
     }
 
     void addDependencies(@NonNull Project project);

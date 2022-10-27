@@ -1,14 +1,13 @@
 package com.github.basdxz.qtjavelin.task;
 
 import lombok.*;
+import org.gradle.api.Action;
 import org.gradle.api.Project;
-import org.gradle.api.internal.GradleInternal;
-import org.gradle.initialization.ModelConfigurationListener;
 
-public interface TaskInitializer extends ModelConfigurationListener {
+public interface TaskInitializer extends Action<Project> {
     @Override
-    default void onConfigure(@NonNull GradleInternal model) {
-        initTasks(model.getRootProject());
+    default void execute(@NonNull Project project) {
+        initTasks(project);
     }
 
     void initTasks(@NonNull Project project);
