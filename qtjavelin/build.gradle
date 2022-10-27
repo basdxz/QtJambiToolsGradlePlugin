@@ -6,7 +6,6 @@ plugins {
 }
 
 group 'com.basdxz'
-archivesBaseName = 'qtjavelin'
 version gitVersion()
 
 repositories {
