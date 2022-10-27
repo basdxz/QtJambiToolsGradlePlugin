@@ -1,1 +1,1 @@
-# QtJambi Tools Gradle Plugin
+# QtJavelin
