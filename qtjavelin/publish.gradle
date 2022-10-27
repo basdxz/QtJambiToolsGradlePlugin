@@ -30,16 +30,16 @@ def getCredentials = {
 
 publish.dependsOn(build)
 publishing {
-    publications {
-        maven(MavenPublication) {
-            artifact source: jar, classifier: ""
-            artifact source: sourcesJar, classifier: "sources"
-
-            groupId = group
-            artifactId = archivesBaseName
-            version = version
-        }
-    }
+//    publications {
+//        maven(MavenPublication) {
+//            artifact source: jar, classifier: ""
+//            artifact source: sourcesJar, classifier: "sources"
+//
+//            groupId = group
+//            artifactId = archivesBaseName
+//            version = version
+//        }
+//    }
 
     repositories {
         if (repositoryURL.trim() != "") {
