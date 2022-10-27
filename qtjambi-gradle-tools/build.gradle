@@ -1,0 +1,63 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'idea'
+    id 'com.palantir.git-version' version "0.15.0"
+}
+
+group 'com.basdxz'
+archivesBaseName = 'qtjambit-gradle-tools'
+version gitVersion()
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // QtJambi
+    implementation 'io.qtjambi:qtjambi:6.4.0'
+    implementation 'io.qtjambi:qtjambi-native-windows-x64:6.4.0'
+    implementation 'io.qtjambi:qtjambi-uic:6.4.0'
+    implementation 'io.qtjambi:qtjambi-uic-native-windows-x64:6.4.0'
+
+    // Apache
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'commons-io:commons-io:2.11.0'
+
+    // Roaster
+    implementation 'org.jboss.forge.roaster:roaster-jdt:2.26.0.Final'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+}
+
+gradlePlugin {
+    // Define the plugin
+    plugins {
+        qtjambitools {
+            id = 'com.basdxz.qtjambitools'
+            implementationClass = 'com.basdxz.qtjambitools.plugin.QTJambiToolsPlugin'
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar
+    archives sourcesJar
+}
