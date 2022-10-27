@@ -1,8 +1,8 @@
-import com.github.basdxz.qtjavelin.task.impl.QTJavaCompilationTask;
+//import com.github.basdxz.qtjavelin.task.impl.QTJavaCompilationTask;
 
 plugins {
     id 'java-library'
-    id 'com.github.basdxz.qtjavelin'
+//    id 'com.github.basdxz.qtjavelin'
     id 'idea'
 }
 
@@ -16,12 +16,12 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
-qtjambi {
-//    version = "foopp"
-//    osQualifier = "silly-2-3-4"
-}
-
-task testTask2(type: QTJavaCompilationTask) {
-//    inputDirectory new File("${project.projectDir}/qt_widgets")
-//    outputDirectory new File("${project.projectDir}/build/generated/sources/gamingplus")
-}
+//qtjambi {
+////    version = "foopp"
+////    osQualifier = "silly-2-3-4"
+//}
+//
+//task testTask2(type: QTJavaCompilationTask) {
+////    inputDirectory new File("${project.projectDir}/qt_widgets")
+////    outputDirectory new File("${project.projectDir}/build/generated/sources/gamingplus")
+//}

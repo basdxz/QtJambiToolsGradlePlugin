@@ -1,0 +1,12 @@
+checkPropertyExists("pluginId")
+checkPropertyExists("mainClass")
+
+gradlePlugin {
+    automatedPublishing = false
+    plugins {
+        qtjavelin {
+            id = pluginId
+            implementationClass = mainClass
+        }
+    }
+}
