@@ -1,4 +1,4 @@
-rootProject.name = 'qtjambi-tools-gradle-plugin-root'
+rootProject.name = 'qtjambi-gradle-tools-root'
 
-includeBuild 'qtjambi-tools-gradle-plugin'
+includeBuild 'qtjambi-gradle-tools'
 includeBuild 'test-project'

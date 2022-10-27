@@ -1,0 +1,61 @@
+plugins {
+    id 'maven-publish'
+}
+
+def repositoryName = "shadowpattern"
+def repositoryURL = "https://mvn.falsepattern.com/shadow/"
+
+def getMavenSettingsCredentials = {
+    String userHome = System.getProperty("user.home");
+    File mavenSettings = new File(userHome, ".m2/settings.xml")
+    def xmlSlurper = new XmlSlurper()
+    def output = xmlSlurper.parse(mavenSettings)
+    return output."servers"."server"
+}
+
+def getCredentials = {
+    String username = System.getenv("MAVEN_DEPLOY_USER")
+    String password = System.getenv("MAVEN_DEPLOY_PASSWORD")
+    if (username == null) {
+        try {
+            def entries = getMavenSettingsCredentials()
+            for (entry in entries) {
+                if (entry."id".text() == repositoryName) {
+                    return [username: entry.username.text(), password: entry.password.text()]
+                }
+            }
+        } catch (Exception ignored) {
+        }
+        return [username: "none", password: "none"]
+    } else {
+        return [username: username, password: password]
+    }
+}
+
+publish.dependsOn(build)
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact source: jar, classifier: ""
+            artifact source: sourcesJar, classifier: "sources"
+
+            groupId = group
+            artifactId = archivesBaseName
+            version = version
+        }
+    }
+
+    repositories {
+        if (repositoryURL.trim() != "") {
+            maven {
+                name = repositoryName
+                url = repositoryURL
+                def creds = getCredentials()
+                credentials {
+                    username = creds?.username ?: "none"
+                    password = creds?.password ?: "none"
+                }
+            }
+        }
+    }
+}
