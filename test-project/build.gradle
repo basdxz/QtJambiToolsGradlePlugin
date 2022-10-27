@@ -1,8 +1,8 @@
-import com.basdxz.qtjambitools.task.impl.QTJavaCompilationTask;
+import com.github.basdxz.qtjavelin.task.impl.QTJavaCompilationTask;
 
 plugins {
     id 'java-library'
-    id 'com.basdxz.qtjambitools'
+    id 'com.github.basdxz.qtjavelin'
     id 'idea'
 }
 
