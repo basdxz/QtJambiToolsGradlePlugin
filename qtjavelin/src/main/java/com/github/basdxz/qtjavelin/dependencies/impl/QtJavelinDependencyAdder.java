@@ -2,8 +2,8 @@ package com.github.basdxz.qtjavelin.dependencies.impl;
 
 import com.github.basdxz.qtjavelin.dependencies.DependencyAdder;
 import com.github.basdxz.qtjavelin.dependencies.IDependencyConfiguration;
-import com.github.basdxz.qtjavelin.extension.IQtJambiExtension;
-import com.github.basdxz.qtjavelin.extension.impl.QtJambiExtension;
+import com.github.basdxz.qtjavelin.extension.IQtJavelinExtension;
+import com.github.basdxz.qtjavelin.extension.impl.QtJavelinExtension;
 import lombok.*;
 import org.gradle.api.Project;
 
@@ -14,22 +14,22 @@ import static lombok.AccessLevel.PROTECTED;
 import static org.gradle.api.plugins.JavaPlugin.IMPLEMENTATION_CONFIGURATION_NAME;
 
 @NoArgsConstructor(access = PROTECTED)
-public class QTJambiDependencyAdder implements DependencyAdder {
+public class QtJavelinDependencyAdder implements DependencyAdder {
     protected static final String QT_JAMBI_GROUP = "io.qtjambi";
     protected static final String QT_JAMBI = "qtjambi";
     protected static final String QT_JAMBI_NATIVE = "qtjambi-native";
     protected static final String QT_UIC = "qtjambi-uic";
     protected static final String QT_UIC_NATIVE = "qtjambi-uic-native";
-    protected static final DependencyAdder INSTANCE = new QTJambiDependencyAdder();
+    protected static final DependencyAdder INSTANCE = new QtJavelinDependencyAdder();
 
     @Override
     public void addDependencies(@NonNull Project project) {
-        dependencies(QtJambiExtension.qtJambiExtension(project)).forEach(newDependencyConfiguration(project)::add);
+        dependencies(QtJavelinExtension.qtJavelinExtension(project)).forEach(newDependencyConfiguration(project)::add);
     }
 
-    protected List<String> dependencies(@NonNull IQtJambiExtension qtJambiExtension) {
-        val version = qtJambiExtension.getVersion();
-        val osQualifier = qtJambiExtension.getOsQualifier();
+    protected List<String> dependencies(@NonNull IQtJavelinExtension qtjavelinExtension) {
+        val version = qtjavelinExtension.getVersion();
+        val osQualifier = qtjavelinExtension.getOsQualifier();
         val dependencies = new ArrayList<String>();
         dependencies.add("%s:%s:%s".formatted(QT_JAMBI_GROUP, QT_JAMBI, version));
         dependencies.add("%s:%s-%s:%s".formatted(QT_JAMBI_GROUP, QT_JAMBI_NATIVE, osQualifier, version));
@@ -42,7 +42,7 @@ public class QTJambiDependencyAdder implements DependencyAdder {
         return new DependencyConfiguration(project, IMPLEMENTATION_CONFIGURATION_NAME);
     }
 
-    public static DependencyAdder qtJambiDependencyAdder() {
+    public static DependencyAdder qtJavelinDependencyAdder() {
         return INSTANCE;
     }
 }

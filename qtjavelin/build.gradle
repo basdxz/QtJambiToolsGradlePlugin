@@ -43,7 +43,7 @@ gradlePlugin {
     plugins {
         qtjambitools {
             id = 'com.github.basdxz.qtjavelin'
-            implementationClass = 'com.github.basdxz.qtjavelin.plugin.QTJambiToolsPlugin'
+            implementationClass = 'com.github.basdxz.qtjavelin.plugin.QtJavelinPlugin'
         }
     }
 }

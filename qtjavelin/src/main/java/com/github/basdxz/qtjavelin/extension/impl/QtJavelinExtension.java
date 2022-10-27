@@ -1,7 +1,7 @@
 package com.github.basdxz.qtjavelin.extension.impl;
 
-import com.github.basdxz.qtjavelin.extension.IQtJambiExtension;
-import com.github.basdxz.qtjavelin.extension.QTJambiOSQualifier;
+import com.github.basdxz.qtjavelin.extension.IQtJavelinExtension;
+import com.github.basdxz.qtjavelin.extension.QtJavelinOSQualifier;
 import lombok.*;
 import lombok.experimental.*;
 import org.gradle.api.Project;
@@ -12,22 +12,22 @@ import java.util.Map;
 @Getter
 @Setter
 @Accessors(fluent = false, chain = false)
-public class QtJambiExtension implements IQtJambiExtension {
+public class QtJavelinExtension implements IQtJavelinExtension {
     public static final String DEFAULT_INPUT_DIRECTORY = "qt_widgets";
     public static final String DEFAULT_PACKAGE_PATH = "compiledgui";
-    public static final String DEFAULT_OUTPUT_DIRECTORY = "qtjambi";
+    public static final String DEFAULT_OUTPUT_DIRECTORY = "qtjavelin";
 
-    protected static final Map<Project, IQtJambiExtension> EXTENSIONS = new HashMap<>();
+    protected static final Map<Project, IQtJavelinExtension> EXTENSIONS = new HashMap<>();
 
     protected final Project project;
 
     protected String version = "6.4.0";
-    protected String osQualifier = QTJambiOSQualifier.currentQualifier().orElse(null);
+    protected String osQualifier = QtJavelinOSQualifier.currentQualifier().orElse(null);
     protected String defaultInputDirectory;
     protected String defaultPackagePath;
     protected String defaultOutputDirectory;
 
-    public QtJambiExtension(@NonNull Project project) {
+    public QtJavelinExtension(@NonNull Project project) {
         this.project = project;
         defaultInputDirectory = project.getProjectDir() + "/" + DEFAULT_INPUT_DIRECTORY;
         defaultPackagePath = DEFAULT_PACKAGE_PATH;
@@ -35,11 +35,11 @@ public class QtJambiExtension implements IQtJambiExtension {
                                  "/generated/sources/" + DEFAULT_OUTPUT_DIRECTORY;
     }
 
-    public static IQtJambiExtension qtJambiExtension(@NonNull Project project) {
-        return EXTENSIONS.computeIfAbsent(project, QtJambiExtension::newQTJambiExtension);
+    public static IQtJavelinExtension qtJavelinExtension(@NonNull Project project) {
+        return EXTENSIONS.computeIfAbsent(project, QtJavelinExtension::newQtJavelinExtension);
     }
 
-    protected static IQtJambiExtension newQTJambiExtension(@NonNull Project project) {
-        return project.getExtensions().create(EXTENSION_NAME, QtJambiExtension.class, project);
+    protected static IQtJavelinExtension newQtJavelinExtension(@NonNull Project project) {
+        return project.getExtensions().create(EXTENSION_NAME, QtJavelinExtension.class, project);
     }
 }

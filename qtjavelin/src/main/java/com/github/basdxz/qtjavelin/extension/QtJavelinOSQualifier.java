@@ -7,26 +7,26 @@ import java.util.*;
 import static org.apache.commons.lang3.SystemUtils.OS_ARCH;
 import static org.apache.commons.lang3.SystemUtils.OS_NAME;
 
-public enum QTJambiOSQualifier {
+public enum QtJavelinOSQualifier {
     WINDOWS_X64("windows-x64", "amd64", "windows", "win"),
     LINUX_X64("linux-x64", "x64", "linux", "bsd", "unix"),
     MACOS("macos", "x64", "osx", "mac"),
     UNKNOWN,
     ;
 
-    private static final QTJambiOSQualifier CURRENT_QUALIFIER = findCurrent();
+    private static final QtJavelinOSQualifier CURRENT_QUALIFIER = findCurrent();
 
     private final String value;
     private final String arch;
     private final List<String> names;
 
-    QTJambiOSQualifier() {
+    QtJavelinOSQualifier() {
         value = "";
         arch = "";
         names = Collections.emptyList();
     }
 
-    QTJambiOSQualifier(@NonNull String value, @NonNull String arch, @NonNull String... names) {
+    QtJavelinOSQualifier(@NonNull String value, @NonNull String arch, @NonNull String... names) {
         if (names.length < 1)
             throw new IllegalArgumentException("Names must be more than zero!");
         this.value = value;
@@ -39,7 +39,7 @@ public enum QTJambiOSQualifier {
         return Optional.ofNullable(value.isEmpty() ? null : value);
     }
 
-    private static QTJambiOSQualifier findCurrent() {
+    private static QtJavelinOSQualifier findCurrent() {
         if (OS_NAME == null || OS_ARCH == null)
             return UNKNOWN;
         val name = OS_NAME.split(" ", 2)[0].toLowerCase(Locale.US);

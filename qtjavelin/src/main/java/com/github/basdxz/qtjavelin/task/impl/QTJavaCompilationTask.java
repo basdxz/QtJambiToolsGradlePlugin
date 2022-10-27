@@ -1,6 +1,6 @@
 package com.github.basdxz.qtjavelin.task.impl;
 
-import com.github.basdxz.qtjavelin.extension.impl.QtJambiExtension;
+import com.github.basdxz.qtjavelin.extension.impl.QtJavelinExtension;
 import com.github.basdxz.qtjavelin.processing.FileProcessor;
 import com.github.basdxz.qtjavelin.processing.impl.QTJavaCompiler;
 import com.github.basdxz.qtjavelin.processing.impl.QTSourceTransformer;
@@ -36,10 +36,10 @@ public class QTJavaCompilationTask extends DefaultTask {
     protected String packagePath;
 
     public QTJavaCompilationTask() {
-        val qtJambiExtension = QtJambiExtension.qtJambiExtension(getProject());
-        inputDirectory = new File(qtJambiExtension.getDefaultInputDirectory());
-        outputDirectory = new File(qtJambiExtension.getDefaultOutputDirectory());
-        packagePath = qtJambiExtension.getDefaultPackagePath();
+        val qtJavelinExtension = QtJavelinExtension.qtJavelinExtension(getProject());
+        inputDirectory = new File(qtJavelinExtension.getDefaultInputDirectory());
+        outputDirectory = new File(qtJavelinExtension.getDefaultOutputDirectory());
+        packagePath = qtJavelinExtension.getDefaultPackagePath();
     }
 
     public void init() {

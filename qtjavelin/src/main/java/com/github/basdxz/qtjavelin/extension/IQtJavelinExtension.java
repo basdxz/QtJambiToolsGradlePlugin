@@ -1,6 +1,6 @@
 package com.github.basdxz.qtjavelin.extension;
 
-public interface IQtJambiExtension {
+public interface IQtJavelinExtension {
     String EXTENSION_NAME = "qtjambi";
 
     String getVersion();

@@ -2,7 +2,7 @@ package com.github.basdxz.qtjavelin;
 
 import org.junit.jupiter.api.Test;
 
-public class QTJambiToolsPluginTest {
+public class QtJavelinToolsPluginTest {
     @Test
     public void greetingTest() {
 //        val project = ProjectBuilder.builder().build();

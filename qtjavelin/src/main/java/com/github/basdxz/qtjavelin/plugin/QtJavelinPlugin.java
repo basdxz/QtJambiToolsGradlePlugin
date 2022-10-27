@@ -6,10 +6,10 @@ import lombok.*;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 
-import static com.github.basdxz.qtjavelin.dependencies.impl.QTJambiDependencyAdder.qtJambiDependencyAdder;
-import static com.github.basdxz.qtjavelin.extension.impl.QtJambiExtension.qtJambiExtension;
+import static com.github.basdxz.qtjavelin.dependencies.impl.QtJavelinDependencyAdder.qtJavelinDependencyAdder;
+import static com.github.basdxz.qtjavelin.extension.impl.QtJavelinExtension.qtJavelinExtension;
 
-public class QTJambiToolsPlugin implements Plugin<Project> {
+public class QtJavelinPlugin implements Plugin<Project> {
     @Override
     public void apply(@NonNull Project project) {
         ensureJavaPluginPresent(project);
@@ -23,12 +23,12 @@ public class QTJambiToolsPlugin implements Plugin<Project> {
     }
 
     protected void initExtension(@NonNull Project project) {
-        qtJambiExtension(project);
+        qtJavelinExtension(project);
     }
 
     protected void addListeners(@NonNull Project project) {
         val gradle = project.getGradle();
-        gradle.addListener(qtJambiDependencyAdder());
+        gradle.addListener(qtJavelinDependencyAdder());
         gradle.addListener(QTJavaCompilationTaskInitializer.qtJavaCompilationTaskInitializer());
     }
 }
