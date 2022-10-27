@@ -26,7 +26,6 @@ public class QTJavaCompiler implements FileProcessor {
 
     @Override
     public void process(@NonNull File inputFile) {
-        System.out.println("Processing: " + inputFile.getAbsolutePath());
         io.qt.uic.Main.main(uiCompilerArguments(inputFile));
     }
 
