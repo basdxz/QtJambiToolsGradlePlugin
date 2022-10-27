@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'com.basdxz'
-archivesBaseName = 'qtjambi-gradle-tools'
+archivesBaseName = 'qtjavelin'
 version gitVersion()
 
 repositories {
