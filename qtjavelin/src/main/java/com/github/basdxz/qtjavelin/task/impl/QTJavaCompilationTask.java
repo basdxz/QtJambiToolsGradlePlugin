@@ -72,7 +72,7 @@ public class QTJavaCompilationTask extends DefaultTask {
     }
 
     protected FileProcessor newQTJavaCompiler() {
-        return new QTJavaCompiler(outputDirectory, packagePath);
+        return new QTJavaCompiler(inputDirectory, outputDirectory, packagePath);
     }
 
     protected FileProcessor newQTSourceTransformer() {
